@@ -11,10 +11,9 @@ Tobias Canger Lund - s214365
 # Imports
 # Various imported packages and function scripts.
 #################
-import matplotlib.pyplot as plt #skal måske ikke bruges her
 from dataLoad import dataLoad as dataL
 from generic_functions import textcolor
-from gradesPlot import gradesPlot as gP
+#from gradesPlot import gradesPlot
 
 # DICTIONARIES FOR THE MENU AND SUBMENUS
 #################
@@ -29,17 +28,15 @@ menu = {
     "Q": "Quit"
 }
 
-
 #################
 # Predefined Variables
 #################
 filepath    = ""    # Initiates the filepath as empty.
 
-
 #################
 # Main Script
 #################
-
+#Noter mangler
 while True:
 # main menu display + prompt
 # if no data is loaded, only the load and quit options will be shown.
@@ -100,13 +97,13 @@ while True:
 # Returns a full error report from the dataset.
  
         elif selected_option == "Check Data for Errors":
-            print("hej")
+            print("Endnu ikke lavet")
             
 # main menu - Generate Diagrams
 # Show plots/diagrams
 
         elif selected_option == "Generate Diagrams":
-            print("hej")
+            print("Endnu ikke lavet")
                                    
 # main menu - Show List of grades
 # Checks if data is loaded and shows error message if data is not loaded.
@@ -114,7 +111,7 @@ while True:
 # If plotting is not possible an error message is shown to the user.
 
         elif selected_option == "Show List of grades":
-            print("hej")                
+            print("Endnu ikke lavet")                
 
 # main menu - Help
         elif selected_option == "Help":
