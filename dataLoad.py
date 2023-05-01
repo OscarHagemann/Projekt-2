@@ -3,35 +3,50 @@
 """
 DATALOAD FUNCTION
 Created on Mon May 1 18:59:57 2023
-    Morten Deurell  - s206073
-Workload equally distributed.  
-
-    Reads a CSV file and returns an N x M array containing the data.
-
-    Argumentss:
-        filename (str): The relative path to the CSV file.
-
-    Returns:
-        data (list of lists): An N x M array containing the rows and columns from the CSV file.
-    """
+This code was written by group 17
+Morten Deurell - s206073
+Oscar Max Hagemann - s214356
+Tobias Canger Lund - s214365  
+"""
 #################
-#imports
+# Imports
+# Various imported packages and function scripts.
 #################
 import csv
 
 #################
 # dataLoad function
-# Loads the chosen datafile (.csv) with student grades
+# Loads the chosen datafile (.csv) with student grades. filename is the path to the file
+# Returns N x M array containing the rows and columns from the .csv-file
 #################
 def dataLoad(filename):
 
-    # Open the CSV file for reading with utf-8 encoding
+    # Open the .csv-file for reading with utf-8 encoding
     with open(filename, 'r', encoding='utf-8') as csvfile:
         # Create a CSV reader object
         reader = csv.reader(csvfile)
         
-        # Read rows from the CSV file and store them in the data list using a list comprehension
-        data = [row for row in reader]
+# Read rows from the CSV file and store them in the data list using a nested list comprehension
+        data = [[x if x != '' else None for x in row] for row in reader]
 
-    # Return the N x M array containing the data
+ # Convert numeric values in columns 3 to m and rows 2 to n to float
+    for i in range(1, len(data)):
+        for j in range(2, len(data[i])):
+            if data[i][j]:
+                data[i][j] = float(data[i][j])
+
+    # Returns the N x M array containing the data from the .csv-file
     return data
+
+
+#################
+# Test and debugging
+# Should be commented out when not used
+#################
+"""
+filename = "GradesStudents_1682963926.csv" 
+data = dataLoad(filename)
+for row in data:
+    formatted_row = [str(x) if not isinstance(x, float) else f"{x:.1f}" for x in row]
+    print(", ".join(formatted_row))
+"""

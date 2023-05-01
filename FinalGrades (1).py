@@ -1,6 +1,7 @@
 #02631 Introduction to programming and data processing
 #Project 2 - Program for grading students
 """
+MAINSCRIPT
 This code was written by group 17
 Oscar Max Hagemann - s214356
 Tobias Canger Lund - s214365
@@ -8,23 +9,18 @@ Tobias Canger Lund - s214365
 
 
 #################
-#imports
+# Imports
+# Various imported packages and function scripts.
 #################
-#various imported packages and function scripts.
+
 import numpy as np
 import matplotlib.pyplot as plt
-from dataLoad import data
-
+from dataLoad import dataL
+from roundGrades import rg
 
 #################
-#functions
+# Functions
 #################
-def dataLoad(filename):
-    #This function reads the data from the file
-    filename = open('GradesStudents.csv', 'r')
-    grades = np.loadtxt(filename, delimiter = ' ')
-
-grades = dataLoad('GradesStudents.csv')
 
 #Grade rounding function
 def roundGrade(grades):
@@ -124,7 +120,9 @@ def gradesPlot(grades):
     plt.title('Grades')
     
   
-#Main script fra sidste projekt
+#################
+# Main Script
+#################
 """
 
 #Getting user input
