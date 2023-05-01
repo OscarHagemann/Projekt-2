@@ -6,9 +6,19 @@ Oscar Max Hagemann - s214356
 Tobias Canger Lund - s214365
 """
 
+
+#################
+#imports
+#################
+#various imported packages and function scripts.
 import numpy as np
 import matplotlib.pyplot as plt
+from dataLoad import data
 
+
+#################
+#functions
+#################
 def dataLoad(filename):
     #This function reads the data from the file
     filename = open('GradesStudents.csv', 'r')
