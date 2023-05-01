@@ -6,55 +6,32 @@ Created on Mon May 1 18:59:57 2023
     Morten Deurell  - s206073
 Workload equally distributed.  
 
-This function loads the data from the txt file as a numpy array called raw_data
-    check if errors are present, if so outputs the type of error and the line 
-    in the console, then returns a numpy array clean_data containing only the 
-    lines without errors
-"""
+    Reads a CSV file and returns an N x M array containing the data.
+
+    Argumentss:
+        filename (str): The relative path to the CSV file.
+
+    Returns:
+        data (list of lists): An N x M array containing the rows and columns from the CSV file.
+    """
 #################
 #imports
 #################
-import numpy as np
+import csv
 
 #################
 # dataLoad function
 # Loads the chosen datafile (.csv) with student grades
 #################
 def dataLoad(filename):
-    
-    # loading the data 
-    raw_data = np.loadtxt(filename)
-    
-    
-    # initializing the array for the clean data
-    clean_data = []
 
-    # checking the data, outputting error messages/lines removed, and filling clean_data
-    print("")
-    for i, row in enumerate(raw_data):
+    # Open the CSV file for reading with utf-8 encoding
+    with open(filename, 'r', encoding='utf-8') as csvfile:
+        # Create a CSV reader object
+        reader = csv.reader(csvfile)
         
-        # check on temperature 
-        if row[0]<10 or row[0]>60:
-            print(f"Line {i}: Temperature out of range.")
-            counter+=1
-        
-        #check on growth rate
-        elif row[1] < 0:
-            print(f"Line {i}: Negative growth-rate.")
-            counter+=1
-        
-        # check on bacteria variant 
-        elif row[2] not in bacteriaVariant:
-            print(f"Line {i}: Bacteria variant out of range.")
-            counter+=1
-        
-        else:
-            clean_data.append(raw_data[i, :])
-            
-    clean_data = np.asarray(clean_data)
-    print(counter, f"faulty lines have been deleted from the loaded dataset of {(i+1)} lines.")
-    print("")
-    return clean_data
+        # Read rows from the CSV file and store them in the data list using a list comprehension
+        data = [row for row in reader]
 
-
-    
+    # Return the N x M array containing the data
+    return data

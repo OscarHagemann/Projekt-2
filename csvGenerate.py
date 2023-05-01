@@ -36,16 +36,17 @@ def generate_grades(n, m):
     # Generates grades for n rows and m columns with a normal distribution
     grades = []
     for _ in range(n):
-        row = [random.choice(range(-3, 13)) if random.random() > 0.05 else "" for _ in range(m)]
+        row = [round(random.uniform(-3, 12), 1) if random.random() > 0.05 else "" for _ in range(m)]
         grades.append(row)
     return grades
 
 def generate_csv(n, m):
-    if not (5 <= n <= 1000) or not (5 <= m <= 1000):
-        raise ValueError("n and m should be between 5 and 1000")
+    if not (5 <= n <= 50) or not (5 <= m <= 50):
+        raise ValueError("n and m should be between 5 and 100")
 
     filename = f"GradesStudents_{int(time.time())}.csv"
-    headers = ["StudentID", "Name"] + [f"Assignment{i}" for i in range(1, m + 1)]
+    headers = ["StudentID", "Name"] + [f"Assignment{i}" for i in range(1, m - 1)]  # Updated to m - 1 columns
+    
     
     student_ids = set()
     names = set()
@@ -71,7 +72,6 @@ def generate_csv(n, m):
         writer.writerows(rows)
 
 if __name__ == "__main__":
-    n = random.randint(5, 1000)  # Number of rows (between 5 and 1000)
-    m = random.randint(5, 1000)  # Number of columns (between 5 and 1000)
-    generate_csv(n, m)
-           
+    n = random.randint(5, 50)  # Number of rows (between 5 and 100)
+    m = random.randint(5, 50)  # Number of columns (between 5 and 100)
+    generate_csv(n, m) 
