@@ -13,6 +13,7 @@ Tobias Canger Lund - s214365
 #################
 import numpy as np
 import matplotlib.pyplot as plt
+from computeFinalGrades import computeFinalGrades
 
 #################
 # Functions

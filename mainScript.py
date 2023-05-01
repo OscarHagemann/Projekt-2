@@ -7,15 +7,14 @@ Oscar Max Hagemann - s214356
 Tobias Canger Lund - s214365
 """
 
-
 #################
 # Imports
 # Various imported packages and function scripts.
 #################
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt #skal måske ikke bruges her
 from dataLoad import dataLoad as dataL
 from generic_functions import textcolor
-from gradesPlot import gradePlot as gP
+from gradesPlot import gradesPlot as gP
 
 # DICTIONARIES FOR THE MENU AND SUBMENUS
 #################

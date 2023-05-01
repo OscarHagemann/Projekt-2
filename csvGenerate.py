@@ -35,9 +35,12 @@ def generate_realistic_danish_name():
 def generate_grades(n, m):
     # Generates grades for n rows and m columns with a normal distribution
     grades = []
+    allowed_integers = [-3, 0, 2, 4, 7, 10, 12]
+    
     for _ in range(n):
-        row = [round(random.uniform(-3, 12), 1) if random.random() > 0.05 else "" for _ in range(m)]
+        row = [random.choice(allowed_integers) if random.random() > 0.05 else "" for _ in range(m)]
         grades.append(row)
+        
     return grades
 
 def generate_csv(n, m):

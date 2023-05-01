@@ -15,23 +15,20 @@ def roundGrade(grades):
     gradesRounded = []
     
     for grade in grades:
-        if grade == None:
-            gradesRounded.append(None)
-        else:
-            if grade >= 11.0:
-                gradesRounded.append(12)
-            elif grade >= 8.5 and grade < 11.0:
-                gradesRounded.append(10)
-            elif grade >= 5.5 and grade < 8.5:
-                gradesRounded.append(7)
-            elif grade >= 3.0 and grade < 5.5:
-                gradesRounded.append(4)
-            elif grade >= 1.0 and grade < 3.0:
-                gradesRounded.append(2)
-            elif grade >= -1.5 and grade < 1.0:
-                gradesRounded.append(0)
-            elif grade >= -3.0 and grade < -1.5:
-                gradesRounded.append(-3)
+        if grade >= 11.0:
+            gradesRounded.append(12)
+        elif grade >= 8.5 and grade < 11.0:
+            gradesRounded.append(10)
+        elif grade >= 5.5 and grade < 8.5:
+            gradesRounded.append(7)
+        elif grade >= 3.0 and grade < 5.5:
+            gradesRounded.append(4)
+        elif grade >= 1.0 and grade < 3.0:
+            gradesRounded.append(2)
+        elif grade >= -1.5 and grade < 1.0:
+            gradesRounded.append(0)
+        elif grade >= -3.0 and grade < -1.5:
+            gradesRounded.append(-3)
     return gradesRounded
 
 #################
@@ -39,4 +36,4 @@ def roundGrade(grades):
 # Should be commented out when not used
 #################
 
-print(roundGrade([None, 10.5,3.4, 4.6, 10.3, 0.3, 9.5, 11.1, 8.9, 9.4, -0.2, 2.7, -2.9, -2.9])) 
+#print(roundGrade([10.5,3.4, 4.6, 10.3, 0.3, 9.5, 11.1, 8.9, 9.4, -0.2, 2.7, -2.9, -2.9])) 

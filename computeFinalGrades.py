@@ -10,7 +10,7 @@ Tobias Canger Lund - s214365
 # Imports
 #################
 import numpy as np
-from roundGrades import roundGrade as rG
+from roundGrades import roundGrade
 
 #################
 # Functions
@@ -22,14 +22,14 @@ def computeFinalGrades(grades):
             grades[i] = [-3] * len(grades[i])
     if len(grades[0]) == 1:
         grades = [item for sublist in grades for item in sublist]
-        gradesFinal = rG(grades)
+        gradesFinal = roundGrade(grades)
     elif len(grades[0]) > 1:
         grades = np.array(grades)
-        Min = np.argmin(grades, axis=1)
+        Min = np.aroundGrademin(grades, axis=1)
         grades = np.array([np.delete(row, idx) for row, idx in zip(grades, Min)])
         grades = np.transpose(grades)
         grades = np.mean(grades, axis=0)
-        gradesFinal = rG(grades)
+        gradesFinal = roundGrade(grades)
     return gradesFinal
 
 #################
