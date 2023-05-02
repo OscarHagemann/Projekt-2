@@ -10,7 +10,9 @@ Tobias Canger Lund - s214365
 # Functions
 #################
 # Grade rounding function
-# This function rounds the grade to the nearest grade on the 7-step-scale
+
+# The function takes an array of grades as input and returns a new array with the grades rounded to the nearest grade on the 7-step-scale
+# The function works by using a series of if and elif statements to determine which grade on the 7-step-scale is closest to each input grade
 def roundGrade(grades):
     gradesRounded = []
     
