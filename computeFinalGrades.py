@@ -17,17 +17,30 @@ from roundGrades import roundGrade
 #################
 
 def computeFinalGrades(grades):
+    
+    #The empty list that the vector eventually will end up as
     gradesFinal = [None]*len(grades)
+    
+    #This for loop checks every number and if one of them is -3 it replaces the entire row with -3
     for i in range(len(grades)):
         if -3 in grades[i]:
             grades[i] = [-3] * len(grades[i])
+            
+    #If there is only 1 assignment its just a matter of turning the matrix from a M x 1 to a 1 x M
+    #This could be done witha transpose command, but that requires the matrix to be an np.array
     if len(grades[0]) == 1:
         grades = [item for sublist in grades for item in sublist]
         gradesFinal = roundGrade(grades)
+        
+    #Now here, where there is more than 1 assignment, we need an np.array, and the first thing we're gonna do with that is remove the lowest value of it
     elif len(grades[0]) > 1:
         grades = np.array(grades)
         Min = np.argmin(grades, axis=1)
+        
+        #The lowest number was pointed out previously, but not deleted, that is what we need the np.delete function for, it eliminates the value Min
         grades = np.array([np.delete(row, idx) for row, idx in zip(grades, Min)])
+        
+        #Also we transposed the matrix, took the average of the remaining grades and rounded it with the previous function
         grades = np.transpose(grades)
         grades = np.mean(grades, axis=0)
         gradesFinal = roundGrade(grades)
