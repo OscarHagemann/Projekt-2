@@ -27,9 +27,9 @@ def computeFinalGrades(grades):
             grades[i] = [-3] * len(grades[i])
             
     #If there is only 1 assignment its just a matter of turning the matrix from a M x 1 to a 1 x M
-    #This could be done witha transpose command, but that requires the matrix to be an np.array
+    #This could be done with a transpose command, but that requires the matrix to be an np.array
     if len(grades[0]) == 1:
-        grades = [item for sublist in grades for item in sublist]
+        grades = [M for N in grades for M in N]
         gradesFinal = roundGrade(grades)
         
     #Now here, where there is more than 1 assignment, we need an np.array, and the first thing we're gonna do with that is remove the lowest value of it
