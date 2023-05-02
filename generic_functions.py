@@ -7,7 +7,7 @@ Oscar Max Hagemann - s214356
 Tobias Canger Lund - s214365  
 """
 
-# This function is coloring for the main script
+# This function is coloring for the main script text
 def textcolor(str,colr):
     if colr == "orange":
         colored_string = "\033[38;2;255;165;0m" + str + "\033[0m"
