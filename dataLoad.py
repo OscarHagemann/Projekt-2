@@ -13,6 +13,8 @@ Tobias Canger Lund - s214365
 # Various imported packages and function scripts.
 #################
 import csv
+from cleanData import cleanData
+
 
 #################
 # dataLoad function
@@ -27,13 +29,13 @@ def dataLoad(filename):
         reader = csv.reader(csvfile)
         
 # Read rows from the CSV file and store them in the data list using a nested list comprehension
-        data = [[x if x != '' else None for x in row] for row in reader]
+        data = [row for row in reader]
 
  # Convert numeric values in columns 3 to m and rows 2 to n to float
     for i in range(1, len(data)):
         for j in range(2, len(data[i])):
             if data[i][j]:
-                data[i][j] = float(data[i][j])
+                data[i][j] = int(data[i][j])
 
     # Returns the N x M array containing the data from the .csv-file
     return data
@@ -43,10 +45,12 @@ def dataLoad(filename):
 # Test and debugging
 # Should be commented out when not used
 #################
-"""
-filename = "GradesStudents_1682963926.csv" 
+
+filename = "GradesStudents_1682975120.csv" 
 data = dataLoad(filename)
-for row in data:
-    formatted_row = [str(x) if not isinstance(x, float) else f"{x:.1f}" for x in row]
-    print(", ".join(formatted_row))
-"""
+#for row in data:
+    #formatted_row = [str(x) if not isinstance(x, float) else f"{x:.1f}" for x in row]
+    #print(", ".join(formatted_row))
+
+#cleaned_data = cleanData(data)
+#print(cleaned_data)
