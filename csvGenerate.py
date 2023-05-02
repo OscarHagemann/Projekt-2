@@ -38,13 +38,13 @@ def generate_grades(n, m):
     allowed_integers = [-3, 0, 2, 4, 7, 10, 12]
     
     for _ in range(n):
-        row = [random.choice(allowed_integers) if random.random() > 0.05 else "" for _ in range(m)]
+        row = [random.choice(allowed_integers) if random.random() > 0.03 else "" for _ in range(m)]
         grades.append(row)
         
     return grades
 
 def generate_csv(n, m):
-    if not (20 <= n <= 50) or not (5 <= m <= 20):
+    if not (20 <= n <= 80) or not (5 <= m <= 20):
         raise ValueError("n and m should be between 5 and 100")
 
     filename = f"GradesStudents_{int(time.time())}.csv"
