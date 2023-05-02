@@ -15,10 +15,23 @@ from roundGrades import roundGrade
 #################
 # Functions
 #################
+
 def computeFinalGrades(grades):
     gradesFinal = [None]*len(grades)
-    #her enten iteres over de elementer som har en karakter eller også skal man gå ud fra at der altid er en karakter og iterer over hele matricen
-    return gradesFinal         
+    for i in range(len(grades)):
+        if -3 in grades[i]:
+            grades[i] = [-3] * len(grades[i])
+    if len(grades[0]) == 1:
+        grades = [item for sublist in grades for item in sublist]
+        gradesFinal = roundGrade(grades)
+    elif len(grades[0]) > 1:
+        grades = np.array(grades)
+        Min = np.argmin(grades, axis=1)
+        grades = np.array([np.delete(row, idx) for row, idx in zip(grades, Min)])
+        grades = np.transpose(grades)
+        grades = np.mean(grades, axis=0)
+        gradesFinal = roundGrade(grades)
+    return gradesFinal     
             
             
 
