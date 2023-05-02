@@ -16,7 +16,7 @@ from Errorlog import validate_data
 from generic_functions import textcolor
 #from gradesPlot import gradesPlot
 
-# DICTIONARIES FOR THE MENU AND SUBMENUS
+# Menu dictionairy
 #################
 # Menu
 #################
