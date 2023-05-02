@@ -22,7 +22,6 @@ from computeFinalGrades import computeFinalGrades
 # This function rounds the grade to the nearest grade on the 7-step-scale
 
 def gradesPlot(grades):
-    
     #Setting up the whole matrix as a numpy array
     AllAss = np.array(grades)
     
@@ -55,6 +54,7 @@ def gradesPlot(grades):
     plt.show()
 
     grades = computeFinalGrades(grades)
+    print(grades)
     Min_3 = 0
     Zero = 0
     Two = 0

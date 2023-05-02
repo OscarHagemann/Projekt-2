@@ -45,13 +45,13 @@ while True:
 # if data is loaded, the additional options will be visible
 
     if ('isLoaded' not in globals()):
-        print(textcolor("MAIN MENU:\n","orange"))
+        print(textcolor("\nMAIN MENU:\n","orange"))
         for key, value in menu.items():
             if key in ["1", "H", "Q"]:
                 print(f"{key}. {value}")      
         choice = input("\nEnter 1. or select 'Q' to quit:")
     else: 
-        print(textcolor("MAIN MENU:","orange"))
+        print(textcolor("\nMAIN MENU:","orange"))
         for key, value in menu.items():
             print(f"{key}. {value}")      
         choice = input("\nEnter your choice (1-4) or select 'Q' to quit: ")

@@ -38,7 +38,7 @@ def generate_grades(n, m):
     allowed_integers = [-3, 0, 2, 4, 7, 10, 12]
     
     for _ in range(n):
-        row = [random.choice(allowed_integers) if random.random() > 0.05 else "" for _ in range(m)]
+        row = [random.choice(allowed_integers) for _ in range(m)]
         grades.append(row)
         
     return grades

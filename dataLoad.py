@@ -13,7 +13,7 @@ Tobias Canger Lund - s214365
 # Various imported packages and function scripts.
 #################
 import csv
-from cleanData import cleanData
+#from cleanData import cleanData
 
 
 #################
@@ -46,11 +46,12 @@ def dataLoad(filename):
 # Should be commented out when not used
 #################
 
-filename = "GradesStudents_1682975120.csv" 
-data = dataLoad(filename)
+#filename = "GradesStudents_1683044592.csv" 
+#data = dataLoad(filename)
 #for row in data:
     #formatted_row = [str(x) if not isinstance(x, float) else f"{x:.1f}" for x in row]
     #print(", ".join(formatted_row))
 
+#print(data)
 #cleaned_data = cleanData(data)
 #print(cleaned_data)
