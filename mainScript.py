@@ -13,8 +13,9 @@ Tobias Canger Lund - s214365
 #################
 from dataLoad import dataLoad
 from Errorlog import validate_data
+from cleanData import cleanData
 from generic_functions import textcolor
-#from gradesPlot import gradesPlot
+from gradesPlot import gradesPlot
 
 # Menu dictionairy
 #################
@@ -104,7 +105,8 @@ while True:
 # Show plots/diagrams
 
         elif selected_option == "Generate Diagrams":
-            print("Endnu ikke lavet")
+            cleaned_data = cleanData(data)
+            gradesPlot(cleaned_data)
                                    
 # main menu - Show List of grades
 # Shows the list of grades as plots.
