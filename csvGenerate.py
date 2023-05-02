@@ -46,7 +46,7 @@ def generate_grades(n, m):
 # This function generates a CSV file with a random number of students between 20 and 1000 
 # and a random number of assignments between 5 and 40
 def generate_csv(n, m):
-    if not (20 <= n <= 1000) or not (5 <= m <= 40):
+    if not (20 <= n <= 100) or not (5 <= m <= 10):
         raise ValueError("n and m should be between 5 and 100")
 
     filename = f"GradesStudents_{int(time.time())}.csv"
@@ -77,6 +77,6 @@ def generate_csv(n, m):
         writer.writerows(rows)
 
 if __name__ == "__main__":
-    n = random.randint(20, 1000)  # Number of rows (between 20 and 1000)
-    m = random.randint(5, 40)  # Number of columns (between 5 and 40)
+    n = random.randint(20, 100)  # Number of rows (between 20 and 1000)
+    m = random.randint(5, 10)  # Number of columns (between 5 and 40)
     generate_csv(n, m) 

@@ -94,7 +94,7 @@ while True:
                         isLoaded=True
                         break
                     except:
-                        print(filepath, "\n Not found, please check the spelling of your file path/file name or enter 'B' to return to MAIN MENU: ")
+                        print(filepath, "\n Not found, please check the spelling of your file path/file name/whether the file is corrupted. Enter 'B' to return to MAIN MENU: ")
 
 # main menu - Check Data for Errors    
 # Returns a full error report from the dataset.
@@ -114,14 +114,23 @@ while True:
 # main menu - Show List of grades
 # Shows the list of grades as plots.
 
-        elif selected_option == "Show List of grades":
+        elif selected_option == "Show List of Grades":
+            print("\nGrades are shown in console. Any faulty lines will have been removed.\nIf you want to check the .csv-file for errors please choose menu item 2 in the MAIN MENU\n")
+            
+            # Call the gradeList function
             modified_data = gradeList(data)
-
-            # Print the dataset as a table
+            
+            # Create column widths and print the dataset as a table
+            student_id_width = 15
+            name_width = 20
+           
+            # Print(modified_data)
             for row in modified_data:
-                print("\t".join(map(str, row)))              
+                formatted_row = [str(row[0]).ljust(student_id_width), row[1].ljust(name_width)] + [str(elem) for elem in row[2:]]
+                print("\t".join(formatted_row))            
 
 # main menu - Help
+# Prints a small help section
         elif selected_option == "Help":
             print("********************HELP********************")
             print("")

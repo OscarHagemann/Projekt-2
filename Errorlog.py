@@ -43,7 +43,7 @@ def validate_data(data):
         # Validates if the grades are on the 7-step-scale
         for j, grade in enumerate(row[2:], start=3):
             if grade is not None and grade not in allowed_integers:
-                log_error(row_number, j, "is not a grade from the 7-step-grade list (-3,0,2,4,7,10,12)")
+                log_error(row_number, j, " The value is not a grade from the 7-step-grade list (-3,0,2,4,7,10,12)")
 
     # Check for duplicate student IDs, it locates the error of the student ID
     for student_id, row_numbers in student_ids.items():
@@ -60,8 +60,6 @@ def validate_data(data):
     for error in error_log:
         print(error)
         print("-----")
-
-
 
 #################
 # Test and debugging

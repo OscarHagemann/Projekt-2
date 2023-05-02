@@ -14,22 +14,21 @@ Tobias Canger Lund - s214365
 # The function takes an array of grades as input and returns a new array with the grades rounded to the nearest grade on the 7-step-scale
 # The function works by using a series of if and elif statements to determine which grade on the 7-step-scale is closest to each input grade
 def roundGrade(grades):
-    gradesRounded = []
-    
-    for grade in grades:
-        if grade >= 11.0:
+    gradesRounded = [] 
+    for i in grades:
+        if i >= 11.0:
             gradesRounded.append(12)
-        elif grade >= 8.5 and grade < 11.0:
+        elif i >= 8.5 and i < 11.0:
             gradesRounded.append(10)
-        elif grade >= 5.5 and grade < 8.5:
+        elif i >= 5.5 and i < 8.5:
             gradesRounded.append(7)
-        elif grade >= 3.0 and grade < 5.5:
+        elif i >= 3.0 and i < 5.5:
             gradesRounded.append(4)
-        elif grade >= 1.0 and grade < 3.0:
+        elif i >= 1.0 and i < 3.0:
             gradesRounded.append(2)
-        elif grade >= -1.5 and grade < 1.0:
+        elif i >= -1.5 and i < 1.0:
             gradesRounded.append(0)
-        elif grade >= -3.0 and grade < -1.5:
+        elif i >= -3.0 and i < -1.5:
             gradesRounded.append(-3)
     return gradesRounded
 
