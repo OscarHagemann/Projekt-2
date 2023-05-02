@@ -22,29 +22,37 @@ from computeFinalGrades import computeFinalGrades as cFG
 # This function rounds the grade to the nearest grade on the 7-step-scale
 
 def gradesPlot(grades):
+    
     #Setting up the whole matrix as a numpy array
     AllAss = np.array(grades)
+    
     #Getting the amount of coloumns required
     Coloumns = len(AllAss[0])
+    
     #Setting up the plot
     fig, ax = plt.subplots()
     Mean = np.mean(AllAss, axis=0)
-    x_mean = np.arange(Coloumns)
+    x_mean = (np.arange(Coloumns)+1)
     ax.plot(x_mean, Mean, label='Mean', color='black')
+    
     #This adds a random value of anywhere between -0.2 and 0.2 to the existing matrix
     #The assignemnt did say between -0.1 and 0.1, but that didn't help with the visibility, so we decided to increase the interval
     Random = np.random.uniform(-0.2, 0.2, size=AllAss.shape)
     AllAss = AllAss + Random
-    #This loop makes the x-axis as long as the number of assignments and inputs all the values of each coloumn in there corresponding x value
+    
+    #This loop makes the x-axis as long as the number of assignments, and inputs all the values of each coloumn in their corresponding x value
     for i in range(Coloumns):
-        x = [i] * len(AllAss)
+        x = [i+1] * len(AllAss)
         y = [row[i] for row in AllAss]
-        ax.plot(x, y, 'o', label=f'Assignment {i+1}')
+        ax.plot(x, y, '.', label=f'Assignment {i+1}')
 
     ax.set_xlabel('Assignments')
     ax.set_ylabel('Grades')
 
     ax.legend()
+    
+    x_labels = list(range(1,Coloumns+1))
+    plt.xticks(x_labels)
     plt.show()
 
     grades = computeFinalGrades(grades)
@@ -75,7 +83,7 @@ def gradesPlot(grades):
     barData = {'-3': Min_3, '00': Zero, '02': Two, '4': Four, '7': Seven, '10': Ten, '12': Twelfe}
     courses = list(barData.keys())
     values = list(barData.values())
-    plt.bar(courses, values, width = 0.3)
+    plt.bar(courses, values, width = 0.3, color = 'red')
     plt.title('Grades')
 #################
 # Test and debugging
