@@ -15,6 +15,7 @@ from dataLoad import dataLoad
 from Errorlog import validate_data
 from cleanData import cleanData
 from generic_functions import textcolor
+from gradeList import gradeList
 from gradesPlot import gradesPlot
 
 # Menu dictionairy
@@ -114,7 +115,11 @@ while True:
 # Shows the list of grades as plots.
 
         elif selected_option == "Show List of grades":
-            print("Endnu ikke lavet")                
+            modified_data = gradeList(data)
+
+            # Print the dataset as a table
+            for row in modified_data:
+                print("\t".join(map(str, row)))              
 
 # main menu - Help
         elif selected_option == "Help":
