@@ -35,16 +35,15 @@ def gradesPlot(grades):
     x_mean = (np.arange(Coloumns)+1)
     ax.plot(x_mean, Mean, label='Mean', color='black')
     
-    #This adds a random value of anywhere between -0.2 and 0.2 to the existing matrix
-    #The assignemnt did say between -0.1 and 0.1, but that didn't help with the visibility, so we decided to increase the interval
-    Random = np.random.uniform(-0.2, 0.2, size=AllAss.shape)
+    #This adds a random value of anywhere between -0.1 and 0.1 to the existing matrix
+    Random = np.random.uniform(-0.1, 0.1, size=AllAss.shape)
     AllAss = AllAss + Random
     
     #This loop makes the x-axis as long as the number of assignments, and inputs all the values of each coloumn in their corresponding x value
     for i in range(Coloumns):
         x = [i+1] * len(AllAss)
         y = [row[i] for row in AllAss]
-        ax.plot(x, y, '.', label=f'Assignment {i+1}')
+        ax.plot(x, y, '.', markersize=3)
 
     ax.set_xlabel('Assignments')
     ax.set_ylabel('Grades')

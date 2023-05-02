@@ -107,6 +107,7 @@ while True:
         elif selected_option == "Generate Diagrams":
             cleaned_data = cleanData(data)
             gradesPlot(cleaned_data)
+            
                                    
 # main menu - Show List of grades
 # Shows the list of grades as plots.
