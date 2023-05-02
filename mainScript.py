@@ -11,7 +11,8 @@ Tobias Canger Lund - s214365
 # Imports
 # Various imported packages and function scripts.
 #################
-from dataLoad import dataLoad as dataL
+from dataLoad import dataLoad
+from Errorlog import validate_data
 from generic_functions import textcolor
 #from gradesPlot import gradesPlot
 
@@ -76,7 +77,7 @@ while True:
         print(textcolor("\nCurrent section:","orange") + f"  {selected_option}\n")
         
 # main menu - Load new data
-# prompt the user for path to datafile. Show return to main menu-statement
+# prompt the user for the path to .csvfile. 
 # if filepath is valid, load data and set isLoaded variable. If not, show error message to user. 
 
         if selected_option == "Load New Data": 
@@ -87,7 +88,7 @@ while True:
                         break
                 else:
                     try: 
-                        data = dataL(filepath)
+                        data = dataLoad(filepath)
                         isLoaded=True
                         break
                     except:
@@ -97,7 +98,7 @@ while True:
 # Returns a full error report from the dataset.
  
         elif selected_option == "Check Data for Errors":
-            print("Endnu ikke lavet")
+            validate_data(data)
             
 # main menu - Generate Diagrams
 # Show plots/diagrams
@@ -106,9 +107,7 @@ while True:
             print("Endnu ikke lavet")
                                    
 # main menu - Show List of grades
-# Checks if data is loaded and shows error message if data is not loaded.
-# If data is loaded the data is shown, either filtered or not filtered.
-# If plotting is not possible an error message is shown to the user.
+# Shows the list of grades as plots.
 
         elif selected_option == "Show List of grades":
             print("Endnu ikke lavet")                
