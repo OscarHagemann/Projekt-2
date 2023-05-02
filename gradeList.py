@@ -23,12 +23,10 @@ def gradeList(data):
     cleaned_data = cleanData(data)
 
     # Compute finalGrades using the cleaned_data
-    finalGrades = computeFinalGrades(cleaned_data)
-
+    finalGrades = computeFinalGrades(cleaned_data)   
     for row in data:
         row.append(None)
     data[0][-1] = "Final Grade"
-
 
     # Substitute cleaned_data values back into the original data array
     for i, row in enumerate(cleaned_data):

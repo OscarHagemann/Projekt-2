@@ -7,18 +7,6 @@ Tobias Canger Lund - s214365
 """
 
 #################
-# Imports
-#################
-
-
-
-#################
-# Variables
-#################
-
-
-
-#################
 # Functions
 #################
 
@@ -63,14 +51,6 @@ def cleanData(data):
         cleaned_data.append(grades)
 
     return cleaned_data
-
-
-
-#################
-# Script
-#################
-
-
 
 #################
 # Test and debugging
