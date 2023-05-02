@@ -40,9 +40,9 @@ def gradesPlot(grades):
     
     #This loop makes the x-axis as long as the number of assignments, and inputs all the values of each coloumn in their corresponding x value
     for i in range(Coloumns):
-        x = [i+1] * len(AllAss)
-        y = [row[i] for row in AllAss]
-        ax.plot(x, y, '.', markersize=3)
+        x = [(i + 1 + np.random.uniform(-0.1, 0.1)) for _ in range(len(AllAss))]
+        y = [row[i] + np.random.uniform(-0.1, 0.1) for row in AllAss]
+        ax.plot(x, y, '.', markersize=1)
 
     ax.set_xlabel('Assignments')
     ax.set_ylabel('Grades')
@@ -54,7 +54,6 @@ def gradesPlot(grades):
     plt.show()
 
     grades = computeFinalGrades(grades)
-    print(grades)
     Min_3 = 0
     Zero = 0
     Two = 0

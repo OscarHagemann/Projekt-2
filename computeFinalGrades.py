@@ -18,7 +18,6 @@ from roundGrades import roundGrade
 
 def computeFinalGrades(grades):
     gradesFinal = [None]*len(grades)
-    print(len(grades))
     for i in range(len(grades)):
         if -3 in grades[i]:
             grades[i] = [-3] * len(grades[i])

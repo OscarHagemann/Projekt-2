@@ -61,7 +61,7 @@ while True:
 # the possibility to choose again  
 
     if choice not in menu:
-        print(textcolor("\nInvalid choice. Please enter a valid number.\n","red"))
+        print(textcolor("\nInvalid choice. Please enter a menu choice.\n","red"))
         continue
 
     # set variable of menu choice
@@ -105,6 +105,7 @@ while True:
 # Show plots/diagrams
 
         elif selected_option == "Generate Diagrams":
+            print("\nPlots are shown in the plot window. Any faulty lines will have been removed.\nIf you want to check the .csv-file for errors please choose menu item 2 in the MAIN MENU")
             cleaned_data = cleanData(data)
             gradesPlot(cleaned_data)
             
