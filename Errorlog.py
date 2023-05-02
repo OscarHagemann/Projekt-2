@@ -11,6 +11,8 @@ Tobias Canger Lund - s214365
 #################
 # Functions
 #################
+
+# This function defines the 7-step-scale, stores IDs in a dict and stores error log in a list
 def validate_data(data):
     allowed_integers = [-3, 0, 2, 4, 7, 10, 12]
     student_ids = {}
@@ -32,18 +34,18 @@ def validate_data(data):
             else:
                 student_ids[student_id] = [row_number]
 
-        # Validate Name
+        # Validates the name of the student
         name = row[1]
         name_parts = name.split()
         if not name or len(name_parts) < 2 or any(len(part) < 2 for part in name_parts):
             log_error(row_number, 2, "Name is empty or not valid")
 
-        # Validate Grades
+        # Validates if the grades are on the 7-step-scale
         for j, grade in enumerate(row[2:], start=3):
             if grade is not None and grade not in allowed_integers:
                 log_error(row_number, j, "is not a grade from the 7-step-grade list (-3,0,2,4,7,10,12)")
 
-    # Check for duplicate student IDs
+    # Check for duplicate student IDs, it locates the error of the student ID
     for student_id, row_numbers in student_ids.items():
         if len(row_numbers) > 1:
             error_message = f"The student ID is also used in row {', '.join(map(str, row_numbers))}"
